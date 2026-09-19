@@ -1,0 +1,75 @@
+<h1>Nuevo producto</h1>
+
+<form (ngSubmit)="guardar()">
+
+  <div>
+    <label for="nombre">Nombre</label>
+    <br>
+    <input
+      id="nombre"
+      name="nombre"
+      type="text"
+      [(ngModel)]="nombre"
+      required
+    >
+  </div>
+
+  <br>
+
+  <div>
+    <label for="descripcion">Descripción</label>
+    <br>
+    <input
+      id="descripcion"
+      name="descripcion"
+      type="text"
+      [(ngModel)]="descripcion"
+      required
+    >
+  </div>
+
+  <br>
+
+  <div>
+    <label for="precio">Precio</label>
+    <br>
+    <input
+      id="precio"
+      name="precio"
+      type="number"
+      min="0"
+      [(ngModel)]="precio"
+      required
+    >
+  </div>
+
+  <br>
+
+  <div>
+    <label for="stock">Stock</label>
+    <br>
+    <input
+      id="stock"
+      name="stock"
+      type="number"
+      min="0"
+      [(ngModel)]="stock"
+      required
+    >
+  </div>
+
+  <br>
+
+  <button type="submit" [disabled]="guardando()">
+    @if (guardando()) {
+      Guardando...
+    } @else {
+      Crear producto
+    }
+  </button>
+
+</form>
+
+@if (error()) {
+  <p>{{ error() }}</p>
+}

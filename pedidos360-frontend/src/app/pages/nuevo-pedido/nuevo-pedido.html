@@ -1,0 +1,60 @@
+<h1>Nuevo pedido</h1>
+
+<form (ngSubmit)="guardar()">
+
+  <div>
+    <label for="cliente">Cliente</label>
+    <br>
+    <input
+      id="cliente"
+      name="cliente"
+      type="text"
+      [(ngModel)]="cliente"
+      required
+    >
+  </div>
+
+  <br>
+
+  <div>
+    <label for="descripcion">Descripción</label>
+    <br>
+    <input
+      id="descripcion"
+      name="descripcion"
+      type="text"
+      [(ngModel)]="descripcion"
+      required
+    >
+  </div>
+
+  <br>
+
+  <div>
+    <label for="total">Total</label>
+    <br>
+    <input
+      id="total"
+      name="total"
+      type="number"
+      min="0"
+      [(ngModel)]="total"
+      required
+    >
+  </div>
+
+  <br>
+
+  <button type="submit" [disabled]="guardando()">
+    @if (guardando()) {
+      Guardando...
+    } @else {
+      Crear pedido
+    }
+  </button>
+
+</form>
+
+@if (error()) {
+  <p>{{ error() }}</p>
+}

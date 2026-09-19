@@ -1,0 +1,53 @@
+<h1>Pedidos360</h1>
+
+<h2>Bienvenido</h2>
+
+<p>
+  <strong>Usuario:</strong>
+  {{ usuario }}
+</p>
+
+<hr>
+
+<h3>
+  Información del Access Token
+</h3>
+
+<p>
+  <strong>Audience:</strong>
+  {{ audience }}
+</p>
+
+<p>
+  <strong>Issuer:</strong>
+  {{ issuer }}
+</p>
+
+<p>
+  <strong>Scope:</strong>
+  {{ scope }}
+</p>
+
+<p>
+  <strong>Roles:</strong>
+
+  @for (rol of roles; track rol) {
+    {{ rol }}
+  }
+
+  @if (roles.length === 0) {
+    Sin roles asignados
+  }
+
+</p>
+
+<p>
+  <strong>Expiración:</strong>
+  {{ expiracion }}
+</p>
+
+<hr>
+
+<button (click)="logout()">
+  Cerrar sesión
+</button>

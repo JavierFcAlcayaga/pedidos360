@@ -1,0 +1,39 @@
+<h1>Productos</h1>
+
+@if (cargando()) {
+  <p>Cargando productos...</p>
+}
+
+@if (error()) {
+  <p>{{ error() }}</p>
+}
+
+@if (!cargando() && !error()) {
+
+  @if (productos().length === 0) {
+    <p>No hay productos registrados.</p>
+  }
+
+  @for (producto of productos(); track producto.id) {
+    <div>
+      <h3>{{ producto.nombre }}</h3>
+
+      <p>
+        <strong>Descripción:</strong>
+        {{ producto.descripcion }}
+      </p>
+
+      <p>
+        <strong>Precio:</strong>
+        ${{ producto.precio }}
+      </p>
+
+      <p>
+        <strong>Stock:</strong>
+        {{ producto.stock }}
+      </p>
+
+      <hr>
+    </div>
+  }
+}

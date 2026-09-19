@@ -1,0 +1,10 @@
+.login-container {
+  max-width: 400px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+button {
+  padding: 12px 20px;
+  cursor: pointer;
+}

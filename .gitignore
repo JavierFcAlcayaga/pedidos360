@@ -1,0 +1,26 @@
+# Angular
+**/node_modules/
+**/dist/
+**/.angular/
+
+# Spring Boot / Maven
+**/target/
+**/.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Variables y secretos
+.env
+*.env
+*.pem
+*.key
+
+# Logs
+*.log
