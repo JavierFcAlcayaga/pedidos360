@@ -36,25 +36,19 @@ export const routes: Routes = [
   {
     path: 'home',
     component: Home,
-    canActivate: [
-      MsalGuard
-    ]
+    canActivate: [MsalGuard]
   },
 
   {
     path: 'pedidos',
     component: Pedidos,
-    canActivate: [
-      MsalGuard
-    ]
+    canActivate: [MsalGuard]
   },
 
   {
     path: 'pedidos/nuevo',
     component: NuevoPedido,
-    canActivate: [
-      MsalGuard
-    ]
+    canActivate: [MsalGuard]
   },
 
   {
@@ -66,9 +60,7 @@ export const routes: Routes = [
   {
     path: 'productos',
     component: Productos,
-    canActivate: [
-      MsalGuard
-    ]
+    canActivate: [MsalGuard]
   },
 
   {

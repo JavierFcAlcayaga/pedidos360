@@ -685,4 +685,4 @@ Browser CORS preflight      → 200
 
 Developed as a full-stack and cloud architecture project using Angular, Spring Boot microservices, Microsoft Entra ID authentication and AWS infrastructure.
 
-Desarrollado como proyecto full-stack y de arquitectura cloud utilizando Angular, microservicios Spring Boot, autenticación mediante Microsoft Entra ID e infraestructura AWS.
+Desarrollado como proyecto full-stack y de arquitectura cloud utilizando Angular, microservicios Spring Boot, autenticación mediante Microsoft Entra ID e infraestructura AWS.git

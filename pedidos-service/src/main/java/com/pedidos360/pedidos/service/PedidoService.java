@@ -11,9 +11,11 @@ import java.util.Optional;
 public class PedidoService {
 
     private final PedidoRepository pedidoRepository;
+    private final PedidoEventPublisher publisher;
 
-    public PedidoService(PedidoRepository pedidoRepository) {
+    public PedidoService(PedidoRepository pedidoRepository, PedidoEventPublisher publisher) {
         this.pedidoRepository = pedidoRepository;
+        this.publisher = publisher;
     }
 
     public List<Pedido> listarTodos() {
@@ -25,7 +27,9 @@ public class PedidoService {
     }
 
     public Pedido crear(Pedido pedido) {
-        return pedidoRepository.save(pedido);
+        Pedido guardado = pedidoRepository.save(pedido);
+        publisher.publicar(guardado);
+        return guardado;
     }
 
     public Pedido actualizar(Pedido pedido) {

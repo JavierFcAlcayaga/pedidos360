@@ -1,0 +1,23 @@
+PEDIDOS360 EP3 — IMPLEMENTACIÓN SOBRE EL ZIP ORIGINAL
+
+Se conservan los archivos originales y se modifican solamente los relacionados con RabbitMQ.
+
+PROYECTOS:
+- pedidos-service: publica evento al guardar Pedido (no revierte registro si RabbitMQ falla).
+- productos-service: @RabbitListener con ACK manual y NACK sin requeue; fallo de prueba cuando mensaje contiene FALLAR.
+- rabbit-admin-service: POST/DELETE /admin/queues, /admin/exchanges y /admin/bindings.
+
+EN AWS:
+Broker: EC2 RabbitMQ IP privada 172.31.24.69 (verificar si laboratorio reinició).
+En los tres servicios establecer RABBIT_HOST, RABBIT_USER, RABBIT_PASSWORD; no incluir password en GitHub.
+Los dos servicios originales también necesitan sus variables DB_HOST, DB_USER y DB_PASSWORD existentes.
+Servicio RabbitAdmin: ejecutarlo con Java 21 en puerto 8082, puede utilizar el host de RabbitMQ con suficiente RAM.
+
+PRUEBAS MÍNIMAS:
+1. Compilar los tres proyectos con ./mvnw (o mvnw.cmd en Windows) clean package -DskipTests.
+2. Crear pedido normalmente: debe registrarse NOTIFICACION en logs del consumidor.
+3. Crear pedido con cliente que contiene FALLAR: debe producirse NACK y mensaje en DLQ.
+4. Probar POST/DELETE /admin/queues, /admin/exchanges y /admin/bindings.
+5. Comprobar que Angular y JWT siguen funcionando como antes.
+
+NOTA: Este ZIP no implica que se hayan ejecutado pruebas reales en AWS.
